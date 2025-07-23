@@ -1,0 +1,26 @@
+class CoreAIEngine {
+  final List<String> logs = [];
+
+  String handleCommand(String input) {
+    logs.add("Received: $input");
+
+    if (input.toLowerCase().contains("create splash")) {
+      logs.add("🖼 Creating splash screen module...");
+      return "Splash screen build started!";
+    } else if (input.toLowerCase().contains("login")) {
+      logs.add("🔐 Creating secure login interface...");
+      return "Login screen module under construction.";
+    } else if (input.toLowerCase().contains("home screen")) {
+      logs.add("🏠 Generating Nexora home screen...");
+      return "Home screen task initiated.";
+    } else if (input.toLowerCase().contains("error") || input.contains("!")) {
+      logs.add("⚠️ Potential issue detected. Flagging...");
+      return "High alert registered. Review in Alerts tab.";
+    } else {
+      logs.add("🤖 Could not auto-classify. Awaiting user action.");
+      return "Command received: \"$input\" — analyzing...";
+    }
+  }
+
+  List<String> getLogs() => logs;
+}
